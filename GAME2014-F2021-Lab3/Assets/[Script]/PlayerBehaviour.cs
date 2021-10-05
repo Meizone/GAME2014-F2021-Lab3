@@ -16,7 +16,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -47,6 +47,5 @@ public class PlayerBehaviour : MonoBehaviour
         {
             transform.position = new Vector2(bounds.max, transform.position.y);
         }
-
     }
 }

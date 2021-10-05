@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour
+public class BulletBehaviour : MonoBehaviour
 {
     [Header("Bullet Movement")]
     [Range(0.0f, 0.5f)]
     public float speed;
     public Bounds bulletBounds;
 
+    private BulletManager bulletManager;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        bulletManager = GameObject.FindObjectOfType<BulletManager>();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -26,7 +33,11 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (transform.position.y < bulletBounds.max)
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+
+            bulletManager.ReturnBullet(this.gameObject);
         }
     }
+
+
 }
